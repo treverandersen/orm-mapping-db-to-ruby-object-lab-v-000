@@ -66,9 +66,10 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
     sql = <<-SQL
-      SELECT x
+      SELECT *
       FROM students
       WHERE grade = 10
+      LIMIT x
     SQL
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
